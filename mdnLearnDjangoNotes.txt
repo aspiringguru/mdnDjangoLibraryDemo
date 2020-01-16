@@ -1,0 +1,62 @@
+
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Tutorial_local_library_website
+
+cd /mnt/f/2020_working/coding/mdnLearnDjango
+
+conda deactivate
+deactivate
+python3 -m venv venv
+source venv/bin/activate
+
+
+pip install python-dotenv
+pip install yolk3k
+yolk -V django
+
+pip install django==2.2.9
+
+vim .gitignore
+#-------------------------------------------------------------------------------
+venv/
+*/__pycache__/
+*.pyc
+#-------------------------------------------------------------------------------
+
+git init
+git add .
+git commit -m "first commit"
+git remote add origin https://github.com/aspiringguru/mdnDjangoLibraryDemo.git
+git push -u origin master
+#-------------------------------------------------------------------------------
+git add .
+git commit -m 'wip. ??'
+git push
+#-------------------------------------------------------------------------------
+
+https://docs.djangoproject.com/en/2.2/intro/tutorial01/
+python -m django --version
+#2.2.9
+
+which django-admin
+# /my-dir-path/venv/bin/django-admin
+django-admin --version
+#2.2.9
+
+which python
+# /my-dir-path/venv/bin/python
+python --version
+#Python 3.6.9
+
+#-------------------------------------------------------------------------------
+django-admin startproject locallibrary
+cd locallibrary
+
+python manage.py startapp catalog
+
+
+vim django_projects/locallibrary/locallibrary/settings.py
+vim locallibrary/settings.py
+
+
+#come back to this elsewhere.
+https://linuxconfig.org/how-to-run-a-speed-test-from-command-line-using-speedtest-cli
