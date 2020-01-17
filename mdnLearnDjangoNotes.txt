@@ -106,9 +106,27 @@ from django.contrib.auth.models import User
 users = User.objects.all()
 #---------------------------------------------------------
 
+end part 2
+commit = https://github.com/aspiringguru/mdnDjangoLibraryDemo/commit/a3853d1015d2616778bd5165c2fc5dae5215de3a
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Models
 
+uml image shows table structure and relationships
+[local_library_model_uml.png]
 
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Models
+https://docs.djangoproject.com/en/2.2/topics/db/models/
+#NB the mdn django part 3 page gives good detail of the options defining a model
 
+to models.py we add class Author, BookInstance, Book, Genre
+
+python3 manage.py makemigrations
+python3 manage.py migrate
+
+#nb in dir \locallibrary\catalog\migrations we see xxxx_initial.py generated
+
+#Language model — challenge
+#add language to class Book, since BookInstance is multiple copies of a specific Book.
+# Book can be in multiple languages but is a different ISBN # etc.
 
 
 
