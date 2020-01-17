@@ -119,18 +119,60 @@ https://docs.djangoproject.com/en/2.2/topics/db/models/
 
 to models.py we add class Author, BookInstance, Book, Genre
 
+
 python3 manage.py makemigrations
 python3 manage.py migrate
+
+[1_makemigrations_migrate.png]
 
 #nb in dir \locallibrary\catalog\migrations we see xxxx_initial.py generated
 
 #Language model — challenge
-#add language to class Book, since BookInstance is multiple copies of a specific Book.
+#add language as a field to class Book, since BookInstance is multiple copies of a specific Book.
 # Book can be in multiple languages but is a different ISBN # etc.
+# Book.language
+
+#do migrate again
+python3 manage.py makemigrations
+python3 manage.py migrate
 
 
+end https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Models
+git commit > https://github.com/aspiringguru/mdnDjangoLibraryDemo/commit/4354950cf6ea2b0d0c225b96ea3ea5e68fc6f372
+start https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Admin_site
+Django Tutorial Part 4: Django admin site
 
 
+python3 manage.py createsuperuser
+username = Staff
+password = 123abc123
+#nb: bypass the password security for simplicity
+[crease_super_user_bypass_password_security.png]
+
+python3 manage.py runserver
+
+http://127.0.0.1:8000/ (still gives error)
+
+http://127.0.0.1:8000/admin
+
+# missed adding class Language and migrating before.
+# edit catalog/models.py and check list of classes
+# edit catalog/admin.py and add classes to import and register
+
+#find or create an open ubuntu shell to run migration
+
+cd /mnt/f/2020_working/coding/mdnLearnDjango
+ls -la
+
+conda deactivate
+deactivate
+source venv/bin/activate
+#--------------------------
+cd locallibrary/
+
+python3 manage.py makemigrations
+python3 manage.py migrate
+#NB: server detects and auto restarts!!!
 
 
 
