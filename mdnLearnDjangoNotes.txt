@@ -21,12 +21,14 @@ venv/
 */__pycache__/
 *.pyc
 #-------------------------------------------------------------------------------
-
+#in git 4 windows bash terminal
 git init
 git add .
 git commit -m "first commit"
 git remote add origin https://github.com/aspiringguru/mdnDjangoLibraryDemo.git
 git push -u origin master
+#-------------------------------------------------------------------------------
+git clone https://github.com/aspiringguru/mdnDjangoLibraryDemo.git
 #-------------------------------------------------------------------------------
 git add .
 git commit -m 'wip. ??'
@@ -53,10 +55,68 @@ cd locallibrary
 
 python manage.py startapp catalog
 
+#add the app 'catalog' to INSTALLED_APPS list within locallibrary/settings.py
 
-vim django_projects/locallibrary/locallibrary/settings.py
-vim locallibrary/settings.py
+# observe  DATABASES in  locallibrary/settings.py is using default sqlite3
+
+# observe TIME_ZONE in   locallibrary/settings.py is using default UTC, could change to local
+# https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+# NBB: use the name in column 'TX databse name'
+# ie TIME_ZONE = 'Europe/Istanbul' or TIME_ZONE = 'Australia/Queensland'
+# demo check this after starting server and loading the admin page
 
 
+# locallibrary/urls.py
+
+#-------------------------------------------------------------------------------
+#run these to migrate the server after altering database.
+python3 manage.py makemigrations
+python3 manage.py migrate
+[1_makemigrations_migrate.png]
+
+python3 manage.py runserver
+
+#--------------------------
+#NB: when opening new ubuntu bash shell, need to enter the virtual env created.
+#NBB: beware of path issues.
+#use this if external drive not automounting with windows.
+sudo mount -t drvfs F: /mnt/f
+
+cd /mnt/f/2020_working/coding/mdnLearnDjango
+ls -la
+
+conda deactivate
+deactivate
+source venv/bin/activate
+#--------------------------
+cd locallibrary/
+ls -la
+python manage.py createsuperuser
+
+#admin
+#123abc123abc
+
+https://docs.djangoproject.com/en/2.2/ref/django-admin/
+#---------------------------------------------------------
+pwd
+#/mnt/f/2020_working/coding/mdnLearnDjango/locallibrary
+python manage.py shell
+
+from django.contrib.auth.models import User
+users = User.objects.all()
+#---------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+#-------------------------------------------------------------------------------
 #come back to this elsewhere.
 https://linuxconfig.org/how-to-run-a-speed-test-from-command-line-using-speedtest-cli
